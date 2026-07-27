@@ -1,0 +1,6 @@
+[deps]
+Documenter = "e30172f5-a6a5-5a46-863b-614d45cd2de4"
+ManyUICLI = "b1b9728b-eec2-4db8-8e84-d6ab07269d58"
+
+[compat]
+Documenter = "1.0"
