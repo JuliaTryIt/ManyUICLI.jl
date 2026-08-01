@@ -48,9 +48,6 @@ jobs:
           version: ${{ matrix.version }}
           arch: ${{ matrix.arch }}
       - uses: julia-actions/cache@v3
-      - name: Develop local dependencies
-        run: |
-          julia --project=@. -e 'using Pkg; Pkg.develop(path="../ManyUI"); Pkg.develop(path="../ManyUIWeb"); Pkg.instantiate()'
       - name: Authenticate to private repositories
         env:
           MANYUI_READ_TOKEN: ${{ secrets.MANYUI_READ_TOKEN }}
@@ -72,6 +69,7 @@ jobs:
           deps = []
           push!(deps, PackageSpec(url="https://github.com/s-celles/ManyUI.jl"))
           push!(deps, PackageSpec(url="https://github.com/s-celles/ManyUITUI.jl"))
+          push!(deps, PackageSpec(url="https://github.com/s-celles/ManyUIWeb.jl"))
           Pkg.develop(deps)
       - uses: julia-actions/julia-buildpkg@v1
       - uses: julia-actions/julia-runtest@v1
