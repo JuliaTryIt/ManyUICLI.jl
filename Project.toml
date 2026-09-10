@@ -7,6 +7,13 @@ authors = ["s-celles <s.celles@gmail.com>"]
 Comonicon = "863f3e99-da2a-4334-8734-de3dacbe5542"
 ManyUI = "4f14d67d-91c5-4d6b-929d-6ac291535b21"
 
+[sources]
+# The ManyUI stack is not registered, so a consumer depending on this package
+# alone has nowhere to look for it. `[sources]` is honoured for a DEPENDENCY and
+# not only for the root project, so declaring it here spares every consumer from
+# redeclaring it. Same form ManyUICImGui already uses.
+ManyUI = {url = "https://github.com/juliatryit/ManyUI.jl.git"}
+
 [compat]
 ManyUI = "0.1"
 Comonicon = "1.0.8"
